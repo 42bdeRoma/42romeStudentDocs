@@ -1,0 +1,16 @@
+title: "42 Rome Student Docs"
+description: "Open source documentation for 42 Rome students - English & Italian"
+languages: ["en", "it"]
+plugins:
+  - jekyll-multiple-languages-plugin
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+baseurl: ""
+url: "https://42bdeRoma.github.io/42romeStudentDocs"
+theme: jekyll-theme-leap-day
+
+# Optional: configure multilingual plugin behavior
+languages_dir: ""
+default_lang: "en"

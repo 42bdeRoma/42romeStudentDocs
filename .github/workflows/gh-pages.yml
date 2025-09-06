@@ -20,10 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           gem install bundler
-          bundle init || true
-          echo "gem 'jekyll'" >> Gemfile
-          echo "gem 'jekyll-theme-leap-day'" >> Gemfile
-          bundle install
+          bundle install --jobs 4 --retry 3
 
       - name: Build site
         run: bundle exec jekyll build
