@@ -23,7 +23,39 @@ jobs:
           gem install bundler
           bundle install --jobs 4 --retry 3
       - name: Build site
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --trace
+
+      - name: Show environment
+        run: |
+          echo "PWD: $(pwd)"
+          echo "Listing repo root:" 
+          ls -la
+          echo
+          echo "Ruby version and bundler:" 
+          ruby -v || true
+          bundle -v || true
+          echo
+          echo "Installed jekyll gem:" 
+          gem list jekyll || true
+          echo
+          echo "Jekyll version (bundle):"
+          bundle exec jekyll -v || true
+
+      - name: Verify _site exists and preview
+        run: |
+          if [ -d "_site" ]; then
+            echo "_site exists"
+            ls -la _site
+            if [ -f "_site/index.html" ]; then
+              echo "---- top of _site/index.html ----"
+              head -n 40 _site/index.html
+            else
+              echo "_site/index.html not found"
+            fi
+          else
+            echo "_site directory NOT FOUND"
+            exit 1
+          fi
       - name: Configure Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
