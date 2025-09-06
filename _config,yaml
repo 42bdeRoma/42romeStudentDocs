@@ -11,5 +11,5 @@ exclude:
   - node_modules
 description: "Open source documentation for 42 Rome students - English & Italian"
 baseurl: ""
-url: "https://your-org.github.io/documentation"
-theme: jekyll-theme-multi-lang
+url: "https://42bdeRoma.github.io/42romeStudentDocs"
+theme: leap-day
