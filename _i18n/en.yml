@@ -4,5 +4,8 @@ language_name: "English"
 welcome_title: "Welcome to the 42 Rome Student Documentation"
 contribute: "Contribute: edit pages directly on GitHub to improve the docs for everyone."
 titles:
-	contributing: "Contributing"
+  contributing: "Contributing"
+
+
+
 
