@@ -23,7 +23,7 @@ jobs:
           gem install bundler
           bundle install --jobs 4 --retry 3
       - name: Build site
-        run: bundle exec jekyll build --trace
+        run: JEKYLL_ENV=production bundle exec jekyll build --trace
 
       - name: Show environment
         run: |
@@ -49,6 +49,11 @@ jobs:
             if [ -f "_site/index.html" ]; then
               echo "---- top of _site/index.html ----"
               head -n 40 _site/index.html
+              echo "---- checking assets directory ----"
+              ls -la _site/assets || echo "No assets directory"
+              echo "---- checking for theme assets ----"
+              ls -la _site/assets/css || echo "No css directory"
+              find _site -name "*.css" || echo "No CSS files found"
             else
               echo "_site/index.html not found"
             fi
