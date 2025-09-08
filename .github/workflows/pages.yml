@@ -21,6 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           gem install bundler
+          bundle config set --local path 'vendor/bundle'
           bundle install --jobs 4 --retry 3
       - name: Build site
         env:
