@@ -29,7 +29,19 @@ jobs:
           PAGES_REPO_NWO: 42bdeRoma/42romeStudentDocs
         run: |
           echo "Using GitHub Pages gem to build site"
+          # Create assets directory if not exists
+          mkdir -p _site/assets/css/
+          
+          # Force the theme's CSS to be copied directly
           bundle exec jekyll build --trace
+          
+          # Check if style.css exists, if not create it from theme's CSS
+          if [ ! -f "_site/assets/css/style.css" ]; then
+            echo "CSS not found, copying directly from theme gem"
+            THEME_PATH=$(bundle info --path jekyll-theme-leap-day)
+            cp -f "$THEME_PATH/assets/css/style.scss" _site/assets/css/
+            cp -rf "$THEME_PATH/_sass" _site/
+          fi
 
       - name: Show environment
         run: |

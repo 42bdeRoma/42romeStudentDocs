@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
-# Basic Jekyll setup - simpler to avoid dependency issues
-gem 'jekyll', '~> 4.2'
+# GitHub Pages integration
+gem 'github-pages', group: :jekyll_plugins
+
+# Required for theme
 gem 'jekyll-remote-theme'
-gem 'jekyll-seo-tag'
 
 # Required for Ruby 3.0+
 gem 'webrick'
