@@ -2,11 +2,13 @@ title: "42 Rome Student Docs"
 description: "Open source documentation for 42 Rome students"
 baseurl: ""
 url: "https://42bdeRoma.github.io/42romeStudentDocs"
-theme: jekyll-theme-leap-day
+
+# Use remote_theme for GitHub Pages
+remote_theme: pages-themes/leap-day@v0.2.0
 
 # Build settings
 markdown: kramdown
-remote_theme: pages-themes/leap-day@v0.2.0
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
+  - jekyll-seo-tag

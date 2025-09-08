@@ -53,7 +53,14 @@ jobs:
               ls -la _site/assets || echo "No assets directory"
               echo "---- checking for theme assets ----"
               ls -la _site/assets/css || echo "No css directory"
+              echo "---- showing all CSS files ----"
               find _site -name "*.css" || echo "No CSS files found"
+              echo "---- content of style.css (if exists) ----"
+              cat _site/assets/css/style.css || echo "No style.css file found"
+              echo "---- checking gem paths and theme installation ----"
+              bundle show jekyll-theme-leap-day || echo "Theme gem not found"
+              bundle info jekyll-theme-leap-day || echo "Theme info not available"
+              bundle exec jekyll --help || true
             else
               echo "_site/index.html not found"
             fi

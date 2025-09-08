@@ -1,0 +1,12 @@
+<!-- Additional head content here -->
+<link rel="stylesheet" href="{{ '/assets/css/test.css' | relative_url }}">
+
+<!-- Add this debug information to help troubleshoot -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('CSS files loaded:');
+    for (let i = 0; i < document.styleSheets.length; i++) {
+      console.log(' - ' + document.styleSheets[i].href);
+    }
+  });
+</script>

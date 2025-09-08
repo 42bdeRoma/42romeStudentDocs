@@ -1,0 +1,4 @@
+/* Just a simple test to verify CSS is loading */
+.test-css-loaded {
+  color: blue;
+}
