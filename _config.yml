@@ -3,6 +3,14 @@ description: "Open source documentation for 42 Rome students"
 baseurl: ""
 url: "https://42bdeRoma.github.io/42romeStudentDocs"
 
+# GitHub repository information (required for GitHub Pages with leap-day theme)
+repository: 42bdeRoma/42romeStudentDocs
+github:
+  repository_name: 42romeStudentDocs
+  repository_url: https://github.com/42bdeRoma/42romeStudentDocs
+  owner_name: 42bdeRoma
+  owner_url: https://github.com/42bdeRoma
+
 # Use remote_theme for GitHub Pages
 remote_theme: pages-themes/leap-day@v0.2.0
 

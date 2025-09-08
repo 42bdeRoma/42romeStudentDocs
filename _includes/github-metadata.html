@@ -1,0 +1,14 @@
+{% if site.github %}
+<!-- GitHub metadata is available -->
+{% else %}
+<script>
+// Fallback GitHub metadata if not available through Jekyll
+window.site = window.site || {};
+window.site.github = {
+  owner_name: "{{ site.owner_name | default: '42bdeRoma' }}",
+  owner_url: "{{ site.owner_url | default: 'https://github.com/42bdeRoma' }}",
+  repository_url: "{{ site.repository_url | default: 'https://github.com/42bdeRoma/42romeStudentDocs' }}",
+  repository_name: "{{ site.repository_name | default: '42romeStudentDocs' }}"
+};
+</script>
+{% endif %}

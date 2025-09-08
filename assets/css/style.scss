@@ -3,4 +3,38 @@
 
 @import "{{ site.theme }}";
 
-// Your custom styles can go below
+// Custom styles and overrides
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header {
+  background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
+  padding: 50px 20px 30px;
+  color: #fff;
+}
+
+#banner {
+  background: #f3f3f3;
+  border: 1px solid #e5e5e5;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 30px 10px 50px;
+  margin: 20px 0;
+  position: relative;
+  background: #fbfbfb;
+  border-radius: 3px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}

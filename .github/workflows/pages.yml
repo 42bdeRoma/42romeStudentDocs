@@ -23,7 +23,10 @@ jobs:
           gem install bundler
           bundle install --jobs 4 --retry 3
       - name: Build site
-        run: JEKYLL_ENV=production bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: production
+          PAGES_REPO_NWO: 42bdeRoma/42romeStudentDocs
+        run: bundle exec jekyll build --trace
 
       - name: Show environment
         run: |
@@ -40,6 +43,13 @@ jobs:
           echo
           echo "Jekyll version (bundle):"
           bundle exec jekyll -v || true
+          echo
+          echo "GitHub repository info:"
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+          echo "PAGES_REPO_NWO: $PAGES_REPO_NWO"
+          echo
+          echo "Content of _config.yml:"
+          cat _config.yml
 
       - name: Verify _site exists and preview
         run: |
