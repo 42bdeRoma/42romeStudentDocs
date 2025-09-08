@@ -5,6 +5,7 @@ url: "https://42bderoma.github.io/42romeStudentDocs"
 
 # Theme settings
 remote_theme: pages-themes/leap-day@v0.2.0
+theme: jekyll-theme-leap-day
 
 # Optional theme configuration
 show_downloads: false
@@ -13,3 +14,8 @@ show_downloads: false
 markdown: kramdown
 plugins:
   - jekyll-remote-theme
+  - jekyll-seo-tag
+
+sass:
+  sass_dir: _sass
+  style: compressed

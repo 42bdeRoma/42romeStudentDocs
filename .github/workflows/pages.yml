@@ -32,15 +32,40 @@ jobs:
           # Create assets directory if not exists
           mkdir -p _site/assets/css/
           
-          # Force the theme's CSS to be copied directly
+          # Get the theme path for reference
+          THEME_PATH=$(bundle info --path jekyll-theme-leap-day)
+          echo "Theme path: $THEME_PATH"
+          
+          # Copy theme assets before build
+          mkdir -p _sass/
+          cp -rf "$THEME_PATH/_sass" .
+          cp -rf "$THEME_PATH/assets/css" assets/
+          cp -rf "$THEME_PATH/assets/js" assets/
+          cp -rf "$THEME_PATH/assets/images" assets/
+          
+          # List copied files
+          echo "Copied theme assets:"
+          find _sass -type f
+          find assets -type f
+          
+          # Force the theme's CSS to be compiled during build
           bundle exec jekyll build --trace
           
-          # Check if style.css exists, if not create it from theme's CSS
-          if [ ! -f "_site/assets/css/style.css" ]; then
-            echo "CSS not found, copying directly from theme gem"
-            THEME_PATH=$(bundle info --path jekyll-theme-leap-day)
-            cp -f "$THEME_PATH/assets/css/style.scss" _site/assets/css/
+          # Make sure style.css exists and has content
+          if [ -f "_site/assets/css/style.css" ]; then
+            echo "CSS found, checking content..."
+            ls -la _site/assets/css/
+            wc -l _site/assets/css/style.css
+          else
+            echo "CSS NOT found, creating directly from theme"
+            mkdir -p _site/assets/css/
+            mkdir -p _site/_sass/
             cp -rf "$THEME_PATH/_sass" _site/
+            cp -f "$THEME_PATH/assets/css/style.scss" _site/assets/css/
+            # Manually process SCSS to CSS as fallback
+            cd _site
+            bundle exec sass assets/css/style.scss assets/css/style.css
+            cd ..
           fi
 
       - name: Show environment

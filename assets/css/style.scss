@@ -1,4 +1,11 @@
 ---
 ---
 
-@import "{{ site.theme }}";
+// Import the theme
+@import "jekyll-theme-leap-day";
+
+// Additional custom styles can be added below
+// For example:
+// body {
+//   background-color: #f8f8f8;
+// }
