@@ -1,10 +1,5 @@
 <!-- Additional head content here -->
-<link rel="stylesheet" href="{{ '/assets/css/test.css' | relative_url }}">
-
-<!-- Include GitHub metadata fallback -->
-{% include github-metadata.html %}
-
-<!-- Add this debug information to help troubleshoot -->
+<!-- Console logging to help troubleshoot CSS loading -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     console.log('CSS files loaded:');

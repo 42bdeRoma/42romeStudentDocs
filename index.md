@@ -8,8 +8,6 @@ description: "Open source documentation for 42 Rome students"
 
 This is documentation site using the Leap Day theme.
 
-<p class="test-css-loaded">This text should be blue if CSS is loading properly.</p>
-
 ## Getting Started
 
 You can navigate through the documentation to find resources for 42 Rome students.
